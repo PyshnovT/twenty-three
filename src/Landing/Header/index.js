@@ -28,16 +28,38 @@ const NavigationWrapper = styled.nav`
 
 const Navigation = styled.div`
   display: flex;
-
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
 `;
 
 const NavigationLink = styled.a`
-  margin-right: 20px;
+  padding: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+
   font-size: 14px;
+  text-align: center;
   color: inherit;
   text-decoration: none;
+
+  @media screen and (min-width: 992px) {
+    padding-left: 20px;
+    padding-right: 20px;
+    border-right: 1px solid #ddd;
+  }
+
+  &:first-child {
+    padding-left: 0;
+  }
+
+  &:last-child {
+    padding-right: 0;
+    border: none;
+  }
 `;
+
+const LogoWrapper = styled.div``;
 
 const Logo = styled.img`
   display: none;
@@ -56,8 +78,6 @@ const SocialsWrapper = styled.div`
   flex-basis: 100%;
 
   @media screen and (min-width: 768px) {
-    width: auto;
-    flex-basis: auto;
   }
 `;
 
@@ -66,6 +86,10 @@ const Socials = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+
+  @media screen and (min-width: 768px) {
+    justify-content: flex-end;
+  }
 `;
 
 const Social = styled.a`
@@ -79,10 +103,12 @@ const SocialImg = styled.img`
 
 export default () => {
   return (
-    <header class="container">
-      <Wrapper class="row">
-        <Logo src={require("./logo.svg")} />
-        <NavigationWrapper>
+    <header className="container">
+      <Wrapper className="row">
+        <LogoWrapper className="col-md-1">
+          <Logo src={require("./logo.svg")} />
+        </LogoWrapper>
+        <NavigationWrapper className="col-md-10">
           <Navigation>
             <NavigationLink href="#">ПРОЦЕСС ОБМЕНА</NavigationLink>
             <NavigationLink href="#">ПРЕИМУЩЕСТВА</NavigationLink>
@@ -90,7 +116,7 @@ export default () => {
             <NavigationLink href="#">ТАРИФЫ</NavigationLink>
           </Navigation>
         </NavigationWrapper>
-        <SocialsWrapper>
+        <SocialsWrapper className="col-md-1">
           <Socials>
             <Social href="#">
               <SocialImg src={require("./telegram.png")} alt="Telegram" />
