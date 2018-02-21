@@ -67,11 +67,8 @@ export default () => {
     <Container>
       <Title>КАК ЭТО РАБОТАЕТ?</Title>
       <Carousel
-        id="carousel"
-        ref={c => (this.c = c)}
-        onScroll={e =>
-          console.log(document.getElementById("carousel").scrollLeft)
-        }
+        id="carousel_works"
+        ref={c => (this.c = c)} // document.getElementById("carousel_works").scrollLeft)
       >
         {items.map((item, index) => (
           <Item
