@@ -13,9 +13,16 @@ import Form from "./Form";
 
 const Container = styled.div``;
 
-const PageOverlay = styled.button`
+const FormWrapper = styled.div`
   position: fixed;
   z-index: 100;
+  width: 100%;
+  height: 100%;
+`;
+
+const PageOverlay = styled.button`
+  position: absolute;
+  z-index: 101;
   width: 100%;
   height: 100%;
   border: none;
@@ -37,7 +44,12 @@ export default class Landing extends React.Component {
   render() {
     return (
       <Container>
-        {this.state.isFormOpened && <PageOverlay onClick={this.toggleForm} />}
+        {this.state.isFormOpened && (
+          <FormWrapper>
+            <Form />
+            <PageOverlay onClick={this.toggleForm} />
+          </FormWrapper>
+        )}
         <Header />
         <Welcome onButtonClick={this.toggleForm} />
         <Works />
