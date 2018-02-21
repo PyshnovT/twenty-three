@@ -7,6 +7,7 @@ import Works from "./Works";
 import Why from "./Why";
 import Change from "./Change";
 import Tarifs from "./Tarifs";
+import Footer from "./Footer";
 
 const Container = styled.div``;
 
@@ -19,6 +20,7 @@ export default () => {
       <Why />
       <Change />
       <Tarifs />
+      <Footer />
     </Container>
   );
 };
