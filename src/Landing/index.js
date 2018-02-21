@@ -6,6 +6,7 @@ import Welcome from "./Welcome";
 import Works from "./Works";
 import Why from "./Why";
 import Change from "./Change";
+import Tarifs from "./Tarifs";
 
 const Container = styled.div``;
 
@@ -17,6 +18,7 @@ export default () => {
       <Works />
       <Why />
       <Change />
+      <Tarifs />
     </Container>
   );
 };

@@ -19,7 +19,7 @@ const Title = styled.h2`
 
   text-align: center;
   font-size: 22px;
-  font-weight: 400;
+  font-weight: 800;
 
   color: #090909;
 
