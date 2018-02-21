@@ -115,22 +115,26 @@ const RightImage = styled.img`
   height: auto;
 `;
 
-export default () => (
-  <Container>
-    <Wrapper>
-      <Title>
-        Сервис утилизации подарков<br />на 23 февраля
-      </Title>
-      <Description>
-        Обменяйте банальные подарки на цветы для своей женщины.
-      </Description>
-      <BigLeftImage src={require("./left.png")} alt="" />
-      <BigRightImage src={require("./right.png")} alt="" />
-      <ImagesContainer>
-        <LeftImage src={require("./left_small.png")} alt="" />
-        <RightImage src={require("./right_small.png")} alt="" />
-      </ImagesContainer>
-      <Button title="ОБМЕНЯТЬ" />
-    </Wrapper>
-  </Container>
-);
+export default class Welcome extends React.Component {
+  render() {
+    return (
+      <Container>
+        <Wrapper>
+          <Title>
+            Сервис утилизации подарков<br />на 23 февраля
+          </Title>
+          <Description>
+            Обменяйте банальные подарки на цветы для своей женщины.
+          </Description>
+          <BigLeftImage src={require("./left.png")} alt="" />
+          <BigRightImage src={require("./right.png")} alt="" />
+          <ImagesContainer>
+            <LeftImage src={require("./left_small.png")} alt="" />
+            <RightImage src={require("./right_small.png")} alt="" />
+          </ImagesContainer>
+          <Button title="ОБМЕНЯТЬ" onClick={this.props.onButtonClick} />
+        </Wrapper>
+      </Container>
+    );
+  }
+}

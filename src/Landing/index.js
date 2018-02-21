@@ -9,18 +9,43 @@ import Change from "./Change";
 import Tarifs from "./Tarifs";
 import Footer from "./Footer";
 
+import Form from "./Form";
+
 const Container = styled.div``;
 
-export default () => {
-  return (
-    <Container>
-      <Header />
-      <Welcome />
-      <Works />
-      <Why />
-      <Change />
-      <Tarifs />
-      <Footer />
-    </Container>
-  );
-};
+const PageOverlay = styled.button`
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0.47);
+`;
+
+export default class Landing extends React.Component {
+  state = {
+    isFormOpened: true
+  };
+
+  toggleForm = () => {
+    this.setState(prevState => ({
+      isFormOpened: !prevState.isFormOpened
+    }));
+  };
+
+  render() {
+    return (
+      <Container>
+        {this.state.isFormOpened && <PageOverlay onClick={this.toggleForm} />}
+        <Header />
+        <Welcome onButtonClick={this.toggleForm} />
+        <Works />
+        <Why />
+        <Change />
+        <Tarifs onButtonClick={this.toggleForm} />
+        <Footer />
+      </Container>
+    );
+  }
+}

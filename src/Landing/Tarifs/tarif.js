@@ -108,7 +108,7 @@ export default class Tarif extends React.Component {
             </ItemText>
           </Left>
           <div>
-            <Button title="ОБМЕНЯТЬ" />
+            <Button title="ОБМЕНЯТЬ" onClick={this.props.onButtonClick} />
           </div>
         </Item>
       </Wrapper>

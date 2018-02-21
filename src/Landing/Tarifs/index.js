@@ -37,31 +37,23 @@ const Title = styled.h2`
 
 const ItemsContainer = styled.div``;
 
-export default () => {
-  return (
-    <Container>
-      <div className="container">
-        <div className="row">
-          <Title className="col-xs-12">Тарифы</Title>
-          <div className="col-xs-12">
-            <ItemsContainer className="row">
-              <Tarif index={0} />
-              <Tarif index={1} />
-              <Tarif index={2} />
-              {/* <Item className="col-xs-12">
-                <ItemImages>{images2}</ItemImages>
-                <ItemText> + доплата 1000₽ = 21 роза </ItemText>
-                <Button title="ОБМЕНЯТЬ" />
-              </Item>
-              <Item className="col-xs-12">
-                <ItemImages>{images3}</ItemImages>
-                <ItemText> + доплата 1000₽ = 21 роза </ItemText>
-                <Button title="ОБМЕНЯТЬ" />
-              </Item> */}
-            </ItemsContainer>
+export default class Tarifs extends React.Component {
+  render() {
+    return (
+      <Container>
+        <div className="container">
+          <div className="row">
+            <Title className="col-xs-12">Тарифы</Title>
+            <div className="col-xs-12">
+              <ItemsContainer className="row">
+                <Tarif index={0} onButtonClick={this.props.onButtonClick} />
+                <Tarif index={1} onButtonClick={this.props.onButtonClick} />
+                <Tarif index={2} onButtonClick={this.props.onButtonClick} />
+              </ItemsContainer>
+            </div>
           </div>
         </div>
-      </div>
-    </Container>
-  );
-};
+      </Container>
+    );
+  }
+}

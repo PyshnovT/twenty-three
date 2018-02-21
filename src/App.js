@@ -8,8 +8,8 @@ import Landing from "./Landing";
 
 const Main = styled.main`
   // font-family: "Inter UI", Arial, sans-serif;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue";
+  font-family: Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans",
+    "Helvetica Neue";
   color: #141414;
 `;
 

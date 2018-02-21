@@ -71,7 +71,7 @@ const Content = styled.div`
 export default class Button extends React.Component {
   render() {
     return (
-      <Wrapper>
+      <Wrapper onClick={this.props.onClick}>
         <Border />
         <Content>{this.props.title}</Content>
       </Wrapper>
