@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const Button = styled.button`
+const Wrapper = styled.button`
   position: relative;
   // margin: 0;
   padding: 0;
@@ -9,58 +9,72 @@ const Button = styled.button`
   outline: none;
   cursor: pointer;
   background: transparent;
+
+  width: 166px;
+  height: 50px;
+
+  @media screen and (min-width: 768px) {
+    width: 196px;
+    height: 58px;
+  }
 `;
 
 const Border = styled.div`
   position: absolute;
-  top: -4px;
-  left: 4px;
-  right: -4px;
-  bottom: 4px;
+  top: -3px;
+  left: 2px;
+  right: -2px;
+  bottom: 3px;
   border: 2px solid #111;
   z-index: 0;
 
   @media screen and (min-width: 768px) {
-    top: -6px;
-    left: 6px;
-    right: -6px;
-    bottom: 6px;
+    top: -5px;
+    left: 4px;
+    right: -4px;
+    bottom: 5px;
+    border: 3px solid #111;
   }
 `;
 
 const Content = styled.div`
-  // position: absolute;
-  // top: 0px;
-  // left: 0px;
-  // right: 0px;
-  // bottom: 0px;
+  position: absolute;
+  top: 2px;
+  left: -2px;
+  right: 2px;
+  bottom: -2px;
 
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
+  // padding-top: 10px;
+  // padding-bottom: 10px;
+  // padding-left: 20px;
+  // padding-right: 20px;
 
   font-size: 18px;
-  line-height: 24px;
+  font-weight: 400;
+  line-height: 52px;
   color: #fff;
 
   background-color: #f06464;
   z-index: 10;
 
   @media screen and (min-width: 768px) {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left: 35px;
-    padding-right: 35px;
+    // padding-top: 15px;
+    // padding-bottom: 15px;
+    // padding-left: 35px;
+    // padding-right: 35px;
 
     font-size: 22px;
-    line-height: 28px;
+    line-height: 60px;
   }
 `;
 
-export default title => (
-  <Button>
-    <Border />
-    <Content>ОБМЕНЯТЬ</Content>
-  </Button>
-);
+export default class Button extends React.Component {
+  render() {
+    return (
+      <Wrapper>
+        <Border />
+        <Content>{this.props.title}</Content>
+      </Wrapper>
+    );
+  }
+}
