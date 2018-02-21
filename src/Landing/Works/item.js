@@ -11,11 +11,11 @@ const Wrapper = styled.div`
   text-align: center;
 
   &:first-child {
-    margin-left: 32px;
+    // margin-left: 32px;
   }
 
-  &Lkast-child {
-    margin-right: 32px;
+  &:last-child {
+    // margin-right: 32px;
   }
 
   @media screen and (min-width: 768px) {
@@ -29,6 +29,7 @@ const W = styled.div`
 `;
 
 const ItemImage = styled.img`
+  margin-top: 8px;
   width: 150px;
   height: 150px;
 
@@ -50,11 +51,13 @@ const ItemBigImage = styled.img`
 const Index = styled.span`
   display: inline-block;
   position: absolute;
-  top: 0px;
   left: 30px;
+
   font-size: 36px;
   line-height: 42px;
   color: #f06464;
+
+  z-index: 10;
 
   @media screen and (min-width: 768px) {
     bottom: 0px;
@@ -72,21 +75,40 @@ const Index = styled.span`
   }
 `;
 
-const BigIndex = styled.span`
+const Line = styled.span`
   display: none;
-  margin-top: 42px;
-  width: 60px;
-  height: 60px;
+  position: absolute;
+  bottom: 27px;
 
-  font-size: 27px;
-  line-height: 60px;
-  color: #fff;
+  height: 4px;
+  width: 160px;
+
   background-color: #f06464;
-  border-radius: 30px;
+  opacity: 0.16;
 
   @media screen and (min-width: 768px) {
     display: inline-block;
   }
+`;
+
+const LeftLine = Line.extend`
+  left: 0;
+
+  ${props =>
+    props.first &&
+    css`
+      opacity: 0;
+    `};
+`;
+
+const RightLine = Line.extend`
+  right: 0;
+
+  ${props =>
+    props.last &&
+    css`
+      opacity: 0;
+    `};
 `;
 
 const Title = styled.h3`
@@ -94,8 +116,14 @@ const Title = styled.h3`
   margin-top: 12px;
 
   font-size: 20px;
-  line-height: 24px;
+  line-height: 28px;
   font-weight: 400;
+
+  @media screen and (min-width: 768px) {
+    display: inline-block;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 `;
 
 export default class Item extends React.Component {
@@ -107,6 +135,8 @@ export default class Item extends React.Component {
           <ItemImage src={this.props.smallImg} alt="" />
           <ItemBigImage src={this.props.bigImg} alt="" />
           <Title>{this.props.title}</Title>
+          <LeftLine first={this.props.index == 1} />
+          <RightLine last={this.props.index == 5} />
         </W>
       </Wrapper>
     );

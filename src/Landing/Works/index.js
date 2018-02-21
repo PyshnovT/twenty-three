@@ -6,6 +6,11 @@ import Item from "./item";
 const Container = styled.section`
   padding-top: 55px;
   padding-bottom: 30px;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 100px;
+    padding-bottom: 86px;
+  }
 `;
 
 const Title = styled.h2`
@@ -14,6 +19,11 @@ const Title = styled.h2`
   text-align: center;
   font-size: 24px;
   font-weight: 400;
+
+  @media screen and (min-width: 768px) {
+    font-size: 40px;
+    line-height: 48px;
+  }
 `;
 
 const Carousel = styled.div`
@@ -21,9 +31,15 @@ const Carousel = styled.div`
   flex-wrap: no-wrap;
   overflow-x: scroll;
 
-  // justify-content: center;
-
   margin-top: 40px;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 58px;
+  }
+
+  @media screen and (min-width: 1600px) {
+    justify-content: center;
+  }
 `;
 
 const items = [
