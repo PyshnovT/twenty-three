@@ -36,7 +36,7 @@ const PageOverlay = styled.button`
 
 export default class Landing extends React.Component {
   state = {
-    isFormOpened: true
+    isFormOpened: false
   };
 
   toggleForm = () => {
